@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Video de fondo */
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Capa de overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+/* Créditos */
+.gracias {
+    position: fixed;
+    bottom: -100%;
+    width: 100%;
+    color: #ffc107;
+    text-shadow:
+        3px 3px 0 #d22626,
+        6px 6px 0 #f4721e,
+        0 0 40px rgba(255, 193, 7, 0.8),
+        0 0 60px rgba(244, 114, 30, 0.6);
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-align: center;
+    animation: subir 20s linear forwards;
+    z-index: 2;
+}
+
+@keyframes subir {
+    from {
+        bottom: -320%;
+    }
+
+    to {
+        bottom: 100%;
+    }
+}
+
+/* Botón de regreso al inicio */
+.btn-gracias {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    padding: 9px 20px;
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #d22626 0%, #f4721e 100%);
+    border: 3px solid #ffc107;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(210, 38, 38, 0.5);
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.btn-gracias:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(244, 114, 30, 0.7);
+    background: linear-gradient(135deg, #f4721e 0%, #ffc107 100%);
+}

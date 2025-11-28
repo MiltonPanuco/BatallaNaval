@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalla Naval - CH8</title>
+
+    <link rel="icon" type="image/x-icon" href="resources/images/logo.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/juego.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="juego-container">
+
+        <!-- Panel Superior: Marcador de Victorias -->
+        <div class="marcador-victorias">
+            <div class="jugador-stats jugador1-stats">
+                <div class="jugador-info">
+                    <div class="jugador-avatar-pequeño">
+                        <img id="avatar1" src="" alt="Jugador 1">
+                    </div>
+                    <div class="jugador-datos">
+                        <h3 id="nombreJugador1">Jugador 1</h3>
+                        <div class="victorias-contador">
+                            <span class="icono-trofeo">🏆</span>
+                            <span id="victoriasJugador1" class="numero-victorias">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vs-separator">VS</div>
+
+            <div class="jugador-stats jugador2-stats">
+                <div class="jugador-info">
+                    <div class="jugador-datos">
+                        <h3 id="nombreJugador2">Jugador 2</h3>
+                        <div class="victorias-contador">
+                            <span class="icono-trofeo">🏆</span>
+                            <span id="victoriasJugador2" class="numero-victorias">0</span>
+                        </div>
+                    </div>
+                    <div class="jugador-avatar-pequeño">
+                        <img id="avatar2" src="" alt="Jugador 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicador de Turno Actual -->
+        <div class="turno-actual">
+            <div class="turno-indicator">
+                <span class="texto-turno">TURNO DE:</span>
+                <span id="nombreTurnoActual" class="nombre-turno">Jugador 1</span>
+            </div>
+        </div>
+
+        <!-- Área de Tableros -->
+        <div class="tableros-container">
+
+            <!-- Tablero Jugador 1 -->
+            <div class="tablero-wrapper">
+                <div class="tablero-header">
+                    <h2 id="headerJugador1">Tablero de Jugador 1</h2>
+                    <div class="barcos-restantes">
+                        <span>⛵</span>
+                        <span id="barcosJugador1">5</span>
+                    </div>
+                </div>
+                <div id="tableroJugador1" class="tablero"></div>
+            </div>
+
+            <!-- Tablero Jugador 2 -->
+            <div class="tablero-wrapper">
+                <div class="tablero-header">
+                    <h2 id="headerJugador2">Tablero de Jugador 2</h2>
+                    <div class="barcos-restantes">
+                        <span>⛵</span>
+                        <span id="barcosJugador2">5</span>
+                    </div>
+                </div>
+                <div id="tableroJugador2" class="tablero"></div>
+            </div>
+
+        </div>
+
+        <!-- Controles del Juego -->
+        <div class="controles-juego">
+            <button id="btnToggleAlertas" class="btn-control btn-toggle-alertas">
+                DESACTIVAR ALERTAS
+            </button>
+            <button id="btnNuevaRonda" class="btn-control btn-nueva-ronda">
+                NUEVA RONDA
+            </button>
+            <button id="btnReiniciarMarcador" class="btn-control btn-reiniciar">
+                REINICIAR MARCADOR
+            </button>
+            <button id="btnSalir" class="btn-control btn-salir">
+                SALIR
+            </button>
+        </div>
+
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/juego.js"></script>
+</body>
+
+</html>

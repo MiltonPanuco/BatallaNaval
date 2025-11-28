@@ -1,27 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batalla Naval (según)</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Batalla Naval - CH8</title>
+
+    <link rel="icon" type="image/x-icon" href="resources/images/logo.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <main>
-        <aside id="jugadores">
-            <button id="comenzar">🏴‍☠️ Comenzar juego</button>
-        </aside>
-        <section id="tableros">
+    <div class="inicio">
+        <div id="pantallaInicio" class="datos">
+            <div class="logo-inicio">BATALLA NAVAL</div>
+            <div class="subtitulo-inicio">EDICIÓN: EL CHAVO DEL OCHO</div>
+        </div>
+        <div class="inicio-bottom boton">
+            <a href="configuracion.html"><button class="btn-inicio">COMENZAR JUEGO</button></a>
+            <div class="creditos">
+                <marquee>SIN QUERER QUERIENDO STUDIOS</marquee>
+            </div>
+        </div>
 
-        </section>
-    </main>
+        <button id="btnMusica" class="btn-general audio">Música: ON</button>
+        <a href="gracias.html"><button id="btnCreditos" class="btn-general cred">Creditos</button></a>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="script.js"></script>
+    </div>
+
+    <script src="js/index.js"></script>
+
 </body>
 
 </html>

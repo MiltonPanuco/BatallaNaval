@@ -1,0 +1,457 @@
+/* CONTENEDOR PRINCIPAL DEL JUEGO */
+.juego-container {
+    min-height: 100vh;
+    background-image: url("../resources/images/config/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px;
+    position: relative;
+}
+
+.juego-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 0;
+}
+
+.juego-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* MARCADOR DE VICTORIAS */
+.marcador-victorias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    border: 3px solid #ffc107;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(210, 38, 38, 0.4);
+}
+
+.jugador-stats {
+    flex: 1;
+}
+
+.jugador-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.jugador2-stats .jugador-info {
+    flex-direction: row-reverse;
+}
+
+.jugador-avatar-pequeño {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffc107;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+}
+
+.jugador-avatar-pequeño img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.jugador-datos h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #ffc107;
+    margin: 0 0 5px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.jugador2-stats .jugador-datos {
+    text-align: right;
+}
+
+.victorias-contador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.jugador2-stats .victorias-contador {
+    flex-direction: row-reverse;
+}
+
+.icono-trofeo {
+    font-size: 1.5rem;
+}
+
+.numero-victorias {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #f4721e;
+    text-shadow: 0 0 10px rgba(244, 114, 30, 0.8);
+}
+
+.vs-separator {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #d22626;
+    text-shadow: 2px 2px 0 #f4721e, 0 0 20px rgba(210, 38, 38, 0.8);
+    padding: 0 20px;
+}
+
+/* INDICADOR DE TURNO */
+.turno-actual {
+    max-width: 600px;
+    margin: 0 auto 25px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #d22626 0%, #f4721e 100%);
+    border: 3px solid #ffc107;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(210, 38, 38, 0.6);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.turno-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.texto-turno {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nombre-turno {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ffc107;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 8px 30px rgba(210, 38, 38, 0.6);
+    }
+    50% {
+        box-shadow: 0 8px 40px rgba(255, 193, 7, 0.8);
+    }
+}
+
+/* TABLEROS */
+.tableros-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto 30px;
+}
+
+.tablero-wrapper {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    border: 3px solid #ffc107;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(210, 38, 38, 0.3);
+}
+
+.tablero-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 193, 7, 0.3);
+}
+
+.tablero-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #ffc107;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.barcos-restantes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #f4721e;
+}
+
+.barcos-restantes span:first-child {
+    font-size: 1.8rem;
+}
+
+/* TABLERO DE JUEGO */
+.tablero {
+    display: grid;
+    gap: 4px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.casilla {
+    aspect-ratio: 1;
+    min-width: 45px;
+    min-height: 45px;
+    background: linear-gradient(135deg, #1a4d6d 0%, #0d2635 100%);
+    border: 2px solid #2196F3;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.casilla::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+}
+
+.casilla:hover:not(.agua):not(.barco-hundido):not(.deshabilitada) {
+    transform: scale(1.1);
+    border-color: #ffc107;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+}
+
+.casilla:hover:not(.agua):not(.barco-hundido):not(.deshabilitada)::before {
+    width: 100%;
+    height: 100%;
+}
+
+/* CASILLA AGUA (FALLO) */
+.casilla.agua {
+    background: linear-gradient(135deg, #0a3d5c 0%, #042433 100%);
+    border-color: #1565C0;
+    cursor: not-allowed;
+    animation: splashWater 0.5s ease;
+}
+
+.casilla.agua::after {
+    content: '';
+    width: 70%;
+    height: 70%;
+    background-image: url('../resources/images/game/water.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: dropIn 0.5s ease;
+}
+
+@keyframes splashWater {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes dropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* CASILLA BARCO HUNDIDO (ACIERTO) */
+.casilla.barco-hundido {
+    background: linear-gradient(135deg, #d22626 0%, #8b0000 100%);
+    border-color: #f4721e;
+    cursor: not-allowed;
+    animation: explosion 0.6s ease;
+    box-shadow: 0 0 20px rgba(210, 38, 38, 0.8);
+}
+
+.casilla.barco-hundido::after {
+    content: '';
+    width: 75%;
+    height: 75%;
+    background-image: url('../resources/images/game/boat.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: explode 0.6s ease;
+    filter: brightness(1.2);
+}
+
+@keyframes explosion {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes explode {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+/* CASILLA DESHABILITADA */
+.casilla.deshabilitada {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* BARCO COLOCADO (Visible solo durante colocación) */
+.casilla.barco-colocado {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    border-color: #81C784;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+}
+
+.casilla.barco-colocado::after {
+    content: '';
+    width: 70%;
+    height: 70%;
+    background-image: url('../resources/images/game/boat.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(1.2);
+}
+
+/* CONTROLES DEL JUEGO */
+.controles-juego {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.btn-control {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    padding: 15px 35px;
+    border: 3px solid;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btn-control:active {
+    transform: translateY(0);
+}
+
+.btn-toggle-alertas {
+    background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%);
+    border-color: #64B5F6;
+    color: white;
+}
+
+.btn-toggle-alertas:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(33, 150, 243, 0.5);
+}
+
+.btn-toggle-alertas.alertas-off {
+    background: linear-gradient(135deg, #757575 0%, #424242 100%);
+    border-color: #9E9E9E;
+}
+
+.btn-toggle-alertas.alertas-off:hover {
+    box-shadow: 0 12px 35px rgba(117, 117, 117, 0.5);
+}
+
+.btn-nueva-ronda {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    border-color: #81C784;
+    color: white;
+}
+
+.btn-nueva-ronda:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(76, 175, 80, 0.5);
+}
+
+.btn-reiniciar {
+    background: linear-gradient(135deg, #FF9800 0%, #E65100 100%);
+    border-color: #FFB74D;
+    color: white;
+}
+
+.btn-reiniciar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 152, 0, 0.5);
+}
+
+.btn-salir {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-color: #f4721e;
+    color: #ffc107;
+}
+
+.btn-salir:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #d22626 0%, #8b0000 100%);
+    border-color: #ffc107;
+    color: white;
+    box-shadow: 0 12px 35px rgba(210, 38, 38, 0.5);
+}
