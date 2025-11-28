@@ -703,10 +703,23 @@ function actualizarBotonAlertas() {
     }
 }
 
+function MutearAudio() {
+    if (audioSoundtrack) {
+        if (audioSoundtrack.muted) {
+            audioSoundtrack.muted = false;
+            document.getElementById('btnToggleAudio').textContent = 'MUTEAR AUDIO';
+        } else {
+            audioSoundtrack.muted = true;
+            document.getElementById('btnToggleAudio').textContent = 'ACTIVAR AUDIO';
+        }
+    }
+}
+
 function configurarEventos() {
     document.getElementById('btnToggleAlertas').addEventListener('click', () => {
         estadoJuego.alertasActivas = !estadoJuego.alertasActivas;
         actualizarBotonAlertas();
+        MutearAudio();
     });
 
     document.getElementById('btnNuevaRonda').addEventListener('click', () => {
@@ -734,7 +747,7 @@ function configurarEventos() {
     document.getElementById('btnReiniciarMarcador').addEventListener('click', () => {
         bloquearTableros();
         Swal.fire({
-            title: '⚠️ ¿Reiniciar Marcador?',
+            title: '¿Reiniciar Marcador?',
             text: 'Esto borrará todas las victorias',
             icon: 'warning',
             showCancelButton: true,
@@ -792,4 +805,6 @@ function configurarEventos() {
                 desbloquearTableros();
             }
         });
-    });}
+    });
+}
+

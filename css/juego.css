@@ -20,7 +20,7 @@
     z-index: 0;
 }
 
-.juego-container > * {
+.juego-container>* {
     position: relative;
     z-index: 1;
 }
@@ -148,9 +148,12 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 8px 30px rgba(210, 38, 38, 0.6);
     }
+
     50% {
         box-shadow: 0 8px 40px rgba(255, 193, 7, 0.8);
     }
@@ -280,9 +283,11 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.2);
     }
+
     100% {
         transform: scale(1);
     }
@@ -293,6 +298,7 @@
         opacity: 0;
         transform: translateY(-20px) scale(0);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -324,9 +330,11 @@
     0% {
         transform: scale(1);
     }
+
     30% {
         transform: scale(1.4);
     }
+
     100% {
         transform: scale(1);
     }
@@ -337,10 +345,12 @@
         opacity: 0;
         transform: scale(0) rotate(0deg);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.5) rotate(180deg);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) rotate(360deg);
@@ -398,6 +408,27 @@
 
 .btn-control:active {
     transform: translateY(0);
+}
+
+/* BOTÓN TOGGLE AUDIO */
+.btn-toggle-audio {
+    background: linear-gradient(135deg, #9C27B0 0%, #6A1B9A 100%);
+    border-color: #BA68C8;
+    color: white;
+}
+
+.btn-toggle-audio:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(156, 39, 176, 0.5);
+}
+
+.btn-toggle-audio.audio-muted {
+    background: linear-gradient(135deg, #424242 0%, #212121 100%);
+    border-color: #757575;
+}
+
+.btn-toggle-audio.audio-muted:hover {
+    box-shadow: 0 12px 35px rgba(66, 66, 66, 0.5);
 }
 
 .btn-toggle-alertas {
